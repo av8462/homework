@@ -12,7 +12,7 @@ function calcTip(bill) {
 }
 
 function result(a, b) {
-  for (let i = 0; i < bills.length; i++) {
+  for (let i = 0; i < a.length; i++) {
     a[i] = a[i] + b[i];
   }
   return a;
