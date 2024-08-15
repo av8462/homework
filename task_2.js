@@ -1,42 +1,35 @@
 `use  strict`;
 
-const massBob = 78;
-const heightBob = 1.68;
+const bob = {
+  firstName: "Bob Miller",
+  mass: 78,
+  height: 1.68,
+  calcBMI: function () {
+    return this.mass / (this.height * this.height);
+  },
+};
 
-const massJohn = 92;
-const heightJohn = 1.76;
+const john = {
+  firstName: "John Smith",
+  mass: 92,
+  height: 1.76,
+  calcBMI: function () {
+    return this.mass / (this.height * this.height);
+  },
+};
 
-const BMIBob = massBob / (heightBob * 2);
-const BMIJohn = massJohn / (heightJohn * 2);
-// console.log("Bobs BMI =", BMIBob, "Johns BMI =", BMIJohn);
+bob["bmi"] = bob.calcBMI();
 
-// const bobHigherBMI = true;
+john["bmi"] = john.calcBMI();
 
-// if (BMIBob > BMIJohn) {
-//   console.log("Bobs BMI higher than Johns BMI", bobHigherBMI);
-// } else {
-//   console.log("Johns BMI higher than Bobs", !bobHigherBMI);
-// }
+const bobHigherBMI = bob.bmi > john.bmi;
 
-if (BMIBob > BMIJohn) {
-  const bobHigherBMI = true;
+if (bobHigherBMI) {
   console.log(
-    "Bob's BMI (",
-    BMIBob,
-    ") higher than John's (",
-    BMIJohn,
-    ")!, it's",
-    bobHigherBMI
+    `${bob.firstName}'s BMI (${bob.bmi}) is higher than ${john.firstName}'s (${john.bmi})`
   );
 } else {
-  bobHigherBMI = false;
   console.log(
-    "It's",
-    bobHigherBMI,
-    ". Now John's BMI (",
-    BMIJohn,
-    ") higher than Bob's (",
-    BMIBob,
-    ")!"
+    `${john.firstName}'s BMI (${john.bmi}) is higher than ${bob.firstName}'s (${bob.bmi})`
   );
 }
