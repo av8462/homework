@@ -1,18 +1,29 @@
 `use  strict`;
 
-const massBob = 78;
-const heightBob = 1.68;
-
-const massJohn = 92;
-const heightJohn = 1.95;
-
-const BMIBob = massBob / heightBob ** 2;
-const BMIJohn = massJohn / heightJohn ** 2;
-
-const bobHigherBMI = BMIBob > BMIJohn;
-
-if (bobHigherBMI) {
-  console.log(`Bob's BMI (${BMIBob}) is higher than John's (${BMIJohn})`);
-} else {
-  console.log(`John's BMI (${BMIJohn}) is higher than Bob's (${BMIBob})`);
+function calcTip(bill) {
+  if (bill >= 50 && bill <= 300) {
+    const tip = bill * 0.15;
+    console.log(`The bill was ${bill}, the tip was ${tip}`);
+    return tip;
+  }
+  const tip = bill * 0.2;
+  console.log(`The bill was ${bill}, the tip was ${tip}`);
+  return tip;
 }
+
+function result(a, b) {
+  for (let i = 0; i < a.length; i++) {
+    a[i] = a[i] + b[i];
+  }
+  return a;
+}
+
+const bills = [125, 555, 44];
+
+const tips = bills.map(calcTip);
+
+const totals = result(bills, tips);
+
+console.log(tips);
+
+console.log(totals);
